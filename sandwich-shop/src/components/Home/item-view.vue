@@ -1,4 +1,4 @@
-<template>
+<template v-if="image">
 <b-container fluid v-on:click="passIndex($event)" class="inventory-item">
     <b-row>
         <b-col class="inventory-item__image text-center">
@@ -18,13 +18,12 @@
             </b-col>
         </b-row>
     </div>
-</b-container>
-    
+</b-container>   
 </template>
 
 <script>
 export default {
-    props: ["name", "quantity", "image", "inventoryView", "index", "inventory"],
+    props: ["name", "quantity", "image", "inventoryView", "index"],
     data() {
         return {
             
@@ -48,6 +47,7 @@ export default {
         max-width: 200px;
         transition: 0.25s;
         margin-top: 5%;
+        padding: 0px;
 
         &:hover {
             cursor: pointer;

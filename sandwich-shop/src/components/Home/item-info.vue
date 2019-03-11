@@ -1,5 +1,5 @@
 <template>
-<b-container fluid>
+<b-container fluid v-if="inventory[itemIndex]">
     <b-row>
         <b-col>
             <button @click="returnHome($event)">Home</button>
@@ -20,7 +20,7 @@
             </b-row>
             <b-row class="inventory-item__text__quantity">
                 <b-col>
-                    <h6>On Hand: {{inventory[itemIndex].quantity }}</h6>
+                    <h6>On Hand: {{ inventory[itemIndex].quantity }}</h6>
                 </b-col>
             </b-row>
         </div>         
@@ -32,7 +32,7 @@
 
 <script>
 export default {
-    props: ["inventory", "itemIndex", "inventoryView"],
+    props: ["inventory", "itemIndex", "inventoryView", "image"],
     data() {
         return {
             viewChange: true,
@@ -43,7 +43,7 @@ export default {
         }
     },
 
-    //  Erros occur right now when accessing properties of the incentory array in the template above. 
+    //  Erros occur right now when accessing properties of the inventory array in the template above. 
     //  Attempting to fix this with computed properties below
 
     // copmuted: {
