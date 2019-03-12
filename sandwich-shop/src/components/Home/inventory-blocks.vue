@@ -1,7 +1,7 @@
 <template>
 <b-container fluid :inventoryView="inventoryView">
-    <b-row v-show="inventoryView" class="">
-        <b-col cols="12" class="inventory-blocks d-flex justify-content-center align-items-center">
+    <b-row v-show="inventoryView">
+        <b-col cols="12" class="inventory-blocks d-flex justify-content-center align-items-start">
             <Item v-for="(item, index) in inventory" :key='index'
             :name="item.name"
             :image="item.image"
@@ -12,12 +12,11 @@
         </b-col>
     </b-row>
     <b-row v-show="!inventoryView"> 
-        <b-col cols="12" class="d-flex justify-content-center align-items-center">
+        <b-col>
             <Info
             :inventory="inventory"
             :itemIndex="itemIndex"
             v-on:changeView="select($event)"
-            class=""
             />
         </b-col>
     </b-row>

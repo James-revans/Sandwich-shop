@@ -1,7 +1,7 @@
-<template v-if="image">
-<b-container fluid v-on:click="passIndex($event)" class="inventory-item">
+<template>
+<b-container fluid v-on:click="passIndex($event)" class="inventory-item p-0">
     <b-row>
-        <b-col class="inventory-item__image text-center">
+        <b-col class="inventory-item__image">
             <img v-bind:src=image>
         </b-col>
     </b-row>
@@ -13,7 +13,7 @@
         </b-row>
         <b-row class="inventory-item__text__quantity">
             <b-col>
-                <h6>On Hand: {{ quantity }}</h6>
+                <h6>Quantity: {{ quantity }}</h6>
                 <h6>{{  }}</h6>
             </b-col>
         </b-row>
@@ -46,8 +46,8 @@ export default {
         min-width: 100px;
         max-width: 200px;
         transition: 0.25s;
-        margin-top: 5%;
-        padding: 0px;
+        border-radius: 5px;
+        
 
         &:hover {
             cursor: pointer;
@@ -56,15 +56,16 @@ export default {
         }
 
         &__image {
-            height: 75px;
-            width: 50px;
             img {
-                height: 100%;
+                max-width: 100%;
+                height: auto;
                 width: auto;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
             }
         }
         &__text{
-            padding-top: 15px;
+            padding: 5%;
             text-align: left;
         }
         
